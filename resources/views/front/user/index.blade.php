@@ -17,8 +17,9 @@
                         <p class="lead">Sebelum melanjutkan transaksi, kamu harus melengkapi profil kamu terlebih
                             dahulu.</p>
                         <div class="mt-4">
-                            <a href="{{ url('/myprofile/update/') }}" class="btn btn-outline-white btn-lg btn-icon icon-left"><i
-                                    class="far fa-user"></i> Lengkapi Profil</a>
+                            <a href="{{ url('/myprofile/update/') }}"
+                                class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="far fa-user"></i>
+                                Lengkapi Profil</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +40,25 @@
 
         <div class="section-body">
             <div class="row">
-                
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Show/Hide</h4>
+                            <div class="card-header-action">
+                                <a data-collapse="#mycard-collapse" class="btn btn-icon btn-info" href="#"><i
+                                        class="fas fa-minus"></i></a>
+                            </div>
+                        </div>
+                        <div class="collapse show" id="mycard-collapse">
+                            <div class="card-body">
+                                You can show or hide this card.
+                            </div>
+                            <div class="card-footer">
+                                Card Footer
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

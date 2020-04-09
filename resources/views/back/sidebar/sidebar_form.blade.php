@@ -78,7 +78,7 @@
                                             <label>Priviliges</label>
                                             <select class="form-control select2" id="role_id" name="role_id">
                                             @foreach ($roles as $r)
-                                            <option value="{{ $r->id }}">{{ $r->name }}</option>                                             
+                                            <option value="{{ $r->id }}" {{ $fields->role_id == $r->id ? 'selected' : '' }}>{{ $r->name }}</option>                                             
                                             @endforeach
                                             </select>
                                         </div>

@@ -93,6 +93,8 @@
                                         @endif
                                     </div>
                                     <div class="col-6">
+                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
                                     </div>
                                 </div>
                             </div>
@@ -112,6 +114,7 @@
             </div>
             @endif
 
+            @if ($state == 'update')
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -124,6 +127,9 @@
                                         class="fas fa-minus"></i></a>
                             </div>
                         </div>
+
+
+
                         <div class="collapse show" id="mycard-collapse">
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -147,7 +153,7 @@
                                                 <td>
                                                     <div class="gallery">
                                                         <div class="gallery-item"
-                                                            data-image="{{ URL::asset('front/myimages/location-image/' . $row->image) }}"
+                                                            data-image="{{ URL::asset('custom-images/location/' . $row->image) }}"
                                                             data-title="{{ $row->image }}"></div>
                                                     </div>
                                                 </td>
@@ -169,9 +175,11 @@
                             </div>
                         </div>
 
+
                     </div>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
     </section>

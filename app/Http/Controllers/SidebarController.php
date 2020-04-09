@@ -42,6 +42,7 @@ class SidebarController extends Controller
         $fields = [
             (object) [
                 'IDX_Sidebar' => 0,
+                'role_id' => 0,
                 'name' => '',
                 'url' => '',
                 'icon' => '',                

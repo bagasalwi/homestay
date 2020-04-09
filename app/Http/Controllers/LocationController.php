@@ -23,7 +23,7 @@ class LocationController extends Controller
         $data['title'] = $this->menu_id;
         $data['sidebar'] = DB::table('sidebar')->where('role_id', 2)->get(); 
         
-        $data['location_array'] = DB::table('location')->get(); 
+        $data['location_array'] = DB::table('locations')->get(); 
         //url
         $data['url_create'] = 'location/create';
         $data['url_update'] = 'location/update';
@@ -36,7 +36,7 @@ class LocationController extends Controller
         //sidebar
         $data['title'] = $this->menu_id;
         $data['sidebar'] = DB::table('sidebar')->where('role_id', 2)->get(); 
-        $data['location'] = DB::table('location')->where('status', 'A')->get();
+        $data['location'] = DB::table('locations')->where('status', 'A')->get();
         $data['state'] = 'create';
 
         $fields = [
@@ -60,8 +60,8 @@ class LocationController extends Controller
         $data['sidebar'] = DB::table('sidebar')->where('role_id', 2)->get(); 
         $data['state'] = 'update';
 
-        $data['fields'] = DB::table('location')->where('id', $id)->get();
-        $data['detail'] = DB::table('location_detail')->where('location_id', $id)->get();
+        $data['fields'] = DB::table('locations')->where('id', $id)->get();
+        $data['detail'] = DB::table('location_details')->where('location_id', $id)->get();
         // dd($data['fields']);
 
         return view('back.location.location_form', $data);
@@ -77,7 +77,7 @@ class LocationController extends Controller
         ]);
 
         if($request->state == 'create'){
-            DB::table('location')->insert([
+            DB::table('locations')->insert([
                 'name' => $request->name,
                 'description' => $request->description,
                 'status' => 'I',
@@ -85,7 +85,7 @@ class LocationController extends Controller
                 'updated_at' => NULL,
             ]);
         }else if($request->state == 'update'){
-            DB::table('location')->where('id', $request->id)->update([
+            DB::table('locations')->where('id', $request->id)->update([
                 'name' => $request->name,
                 'description' => $request->description,
                 'status' => $request->status,
@@ -97,11 +97,11 @@ class LocationController extends Controller
     }
 
     public function delete($id){
-        DB::table('location')->where('id', $id)->delete();
+        DB::table('locations')->where('id', $id)->delete();
     }
 
     public function approve($id){
-        DB::table('location')->where('id', $id)->update([
+        DB::table('locations')->where('id', $id)->update([
             'status' => 'A',
         ]);
     }

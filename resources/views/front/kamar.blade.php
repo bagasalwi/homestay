@@ -3,18 +3,27 @@
 @section('content')
 
 {{-- HOME OVERLAY --}}
-<div class="site-blocks-cover overlay"
-	style="background-image: url({{ URL::asset('front/myimages/kontrakan/4.jpeg')}});" data-aos="fade"
-	data-stellar-background-ratio="0.5" id="home-section">
-	<div class="container">
-		<div class="row align-items-center text-center justify-content-center">
-			<div class="col-md-10">
-				<h1>Kontrakan & Homestay</h1>
-				<span class="sub-text mb-3 d-block"><em>Kec. Serpong Utara, Kota Tangerang Selatan, Banten</em></span>
-			</div>
+{{-- <div class="site-blocks-cover overlay"
+	style="background-image: url({{ URL::asset('front/myimages/kontrakan/4.jpeg')}});"
+data-stellar-background-ratio="0.5" id="home-section">
+<div class="container">
+	<div class="row align-items-center text-center justify-content-center">
+		<div class="col-md-10">
+			<h1>Kontrakan & Homestay</h1>
+			<span class="sub-text mb-3 d-block"><em>Kec. Serpong Utara, Kota Tangerang Selatan, Banten</em></span>
 		</div>
 	</div>
 </div>
+</div> --}}
+
+<div class="container bg-primary">
+	<div class="row">
+		<div class="col-12"></div>
+	</div>
+</div>
+{{-- <div class="jumbotron jumbotron-fluid bg-primary">
+</div> --}}
+
 
 {{-- BAR AFTER OVERLAY --}}
 <div class="site-section border-bottom">

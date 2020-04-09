@@ -74,7 +74,6 @@ class ProfileController extends Controller
             'identity1' => 'in:nik,paspor',
             'identity2' => 'required|numeric|min:8',
             'national' => 'required',
-            'dob' => 'required',
             'gender' => 'required',
             'attachment' => 'file|image|mimes:jpeg,png,jpg|max:3048',
             'password' => ['required','confirmed', new PassConfirm()]
@@ -110,19 +109,23 @@ class ProfileController extends Controller
             }
 
             Image::make($avatar)->save( public_path('user-attachment/' . $filename));
+            $user->attachment = $filename;
         }
 
         $id = Auth::user()->id;
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->address = $request->address;
         $user->nik = $nik;
         $user->paspor = $paspor;
         $user->telepon = $request->telepon;
         $user->gender = $request->gender;
         $user->dob = $request->dob;
         $user->national = $request->national;
-        $user->attachment = $filename;
+        $user->tempat_kerja = $request->tempat_kerja;
+        $user->nama_kerabat = $request->nama_kerabat;
+        $user->no_kerabat = $request->no_kerabat;
         $user->save();
         
         return redirect('myprofile')->with(['success' => 'Your information data successfully updated!']);

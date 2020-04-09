@@ -29,10 +29,10 @@ class LocationDetailController extends Controller
 
             $filename =  $request->location . '_' . time() . '.' . $avatar->getClientOriginalExtension();
 
-            Image::make($avatar)->save(public_path('front/myimages/location-image/' . $filename));
+            Image::make($avatar)->save(public_path('custom-images/location/' . $filename));
         }
 
-        DB::table('location_detail')->insert([
+        DB::table('location_details')->insert([
             'location_id' => $request->location_id,
             'image' => $filename,
             'status' => 'A',
@@ -45,13 +45,13 @@ class LocationDetailController extends Controller
 
     public function deleteDetail($id)
     {
-        $location_detail = DB::table('location_detail')->where('id', $id)->first();
+        $location_detail = DB::table('location_details')->where('id', $id)->first();
 
-        $usersImage = public_path("front/myimages/location-image/{$location_detail->image}"); // get previous image from folder
+        $usersImage = public_path("custom-images/location/{$location_detail->image}"); // get previous image from folder
                 if (File::exists($usersImage)) { // unlink or remove previous image from folder
                     unlink($usersImage);
                 }
         
-        DB::table('location_detail')->where('id', $id)->delete();
+        DB::table('location_details')->where('id', $id)->delete();
     }
 }

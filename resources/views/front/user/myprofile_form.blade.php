@@ -64,6 +64,19 @@
                                                 value="{{ $fields->email }}" required="">
                                         </div>
                                     </div>
+                                    <div class="form-group col-md-12 col-12">
+                                        <label>Address (Last Address / Home Address)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fas fa-address-card"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="address"
+                                                class="form-control @error('address') is-invalid @enderror"
+                                                value="{{old('address', $fields->address)}}" required="">
+                                        </div>
+                                    </div>
                                     <div class="form-group col-md-6 col-12">
                                         <label>Phone Number</label>
                                         <div class="input-group">
@@ -78,7 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3 col-12">
-                                        <label>Date of Birth</label>
+                                        <label>Date of Birth <strong>*Optional</strong></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -121,7 +134,7 @@
                                                 value="{{ old('identity2',$fields->identity2) }}">
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-6 col-12">
+                                    <div class="form-group col-md-4 col-12">
                                         <label>Attachment</label>
                                         <div class="custom-file">
                                             <input type="file" class="form-control" name="attachment">
@@ -141,6 +154,48 @@
                                             <input type="text" name="national"
                                                 class="form-control @error('national') is-invalid @enderror" required=""
                                                 value="{{ old('national',$fields->national) }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4 col-12">
+                                        <label>Tempat Kerja <strong>*Optional</strong></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fas fa-briefcase"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="tempat_kerja"
+                                                class="form-control @error('tempat_kerja') is-invalid @enderror"
+                                                value="{{ old('tempat_kerja',$fields->tempat_kerja) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>Nama kerabat(Contoh:adik/kakak/ayah/ibu) <strong>*Optional</strong></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="nama_kerabat"
+                                                class="form-control @error('nama_kerabat') is-invalid @enderror"
+                                                value="{{ old('nama_kerabat',$fields->nama_kerabat) }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 col-12">
+                                        <label>No kerabat yang bisa dihubungi (Contoh:adik/kakak/ayah/ibu) <strong>*Optional</strong></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="no_kerabat"
+                                                class="form-control @error('no_kerabat') is-invalid @enderror"
+                                                value="{{ old('no_kerabat',$fields->no_kerabat) }}">
                                         </div>
                                     </div>
                                 </div>

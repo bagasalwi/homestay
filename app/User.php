@@ -75,13 +75,18 @@ class User extends Authenticatable implements MustVerifyEmail
         return null !== $this->roles()->where('name', $role)->first();
     }
 
-    // public function isAdmin()
-    // {
-    //     $isAdmin = false;
-    //     $isAdmin = !$this->roles->filter(function ($item) {
-    //         return $item->role == 'admin';
-    //     })->isEmpty();
+    public function kamars()
+    {
+        return $this->hasMany(Kamar::class);
+    }
 
-    //     return $isAdmin;
-    // }
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

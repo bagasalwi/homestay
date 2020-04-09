@@ -40,6 +40,7 @@
                                             <th>Floor</th>
                                             <th>Type</th>
                                             <th>Location</th>
+                                            <th>Harga</th>
                                             <th>Start Book Date</th>
                                             <th>Start End Date</th>
                                             <th>Status</th>
@@ -59,8 +60,9 @@
                                             <td style=" width: 10%;">{{ $row->description }}</td>
                                             <td>{{ $row->number }}</td>
                                             <td>{{ $row->floor }}</td>
-                                            <td>{{ $row->type }}</td>
-                                            <td style=" width: 20%;">{{ $row->location }}</td>
+                                            <td>{{ $row->jeniskamar }}</td>
+                                            <td>{{ $row->locationname }}</td>
+                                            <td>Rp.{{ number_format($row->harga) }}</td>
                                             <td>{{ $row->start_date }}</td>
                                             <td>{{ $row->end_date }}</td>
                                             @if($row->status == 'A')

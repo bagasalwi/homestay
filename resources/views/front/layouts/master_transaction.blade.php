@@ -37,16 +37,6 @@
         <div class="main-wrapper container">
             <div class="navbar-bg"></div>
 
-            @php
-            $full_name = Auth::user()->name;
-            $name = explode(' ',$full_name);
-            $acronym = "";
-        
-            foreach ($name as $a) {
-            $acronym .= strtoupper($a[0]);
-            }
-            @endphp
-
             @include('front.layouts.navbar_transaction')
 
             @yield('content')
@@ -58,7 +48,7 @@
         </div>
     </div>
 
-    @yield('script')
+    
     <!-- General JS Scripts -->
     <script src="{{ URL::asset('assets/modules/jquery.min.js')}}"></script>
     <script src="{{ URL::asset('assets/modules/popper.js')}}"></script>
@@ -98,6 +88,8 @@
     <!-- Template JS File -->
     <script src="{{ URL::asset('assets/js/scripts.js')}}"></script>
     <script src="{{ URL::asset('assets/js/custom.js')}}"></script>
+
+    @yield('script')
 </body>
 
 </html>

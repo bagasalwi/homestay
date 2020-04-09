@@ -23,7 +23,16 @@ class KamarController extends Controller
         $data['title'] = $this->menu_id;
         $data['sidebar'] = DB::table('sidebar')->where('role_id', 2)->get(); 
         
-        $data['kamar_array'] = DB::table('kamar')->get(); 
+        $data['location'] = DB::table('locations')->where('status', 'A')->get();
+        $data['kamar_array'] = DB::table('kamars')
+            ->join('locations', 'kamars.location_id', '=', 'locations.id')
+            ->join('jeniskamars', 'kamars.jeniskamar_id', '=', 'jeniskamars.id')
+            ->select('kamars.*', 'locations.name as locationname', 'locations.description as locationdesc',
+                    'jeniskamars.name as jeniskamar', 'jeniskamars.listrik' , 'jeniskamars.kamar_mandi')
+            ->get(); 
+
+        // dd($data['kamar_array']);
+
         //url
         $data['url_create'] = 'kamar/create';
         $data['url_update'] = 'kamar/update';
@@ -36,19 +45,21 @@ class KamarController extends Controller
         //sidebar
         $data['title'] = $this->menu_id;
         $data['sidebar'] = DB::table('sidebar')->where('role_id', 2)->get(); 
-        $data['location'] = DB::table('location')->where('status', 'A')->get();
+        $data['location'] = DB::table('locations')->where('status', 'A')->get();
+        $data['jeniskamar'] = DB::table('jeniskamars')->get();
         $data['state'] = 'create';
 
         $fields = [
             (object) [
                 'id' => 0,
                 'user_id' => '',
+                'jeniskamar_id' => '',
+                'location_id' => '',
                 'name' => '',
                 'description' => '',
                 'number' => '',                
                 'floor' => '',
-                'type' => '',
-                'location' => '',
+                'harga' => '',
                 'start_date' => '',
                 'end_date' => '',
                 'status' => '',
@@ -67,8 +78,11 @@ class KamarController extends Controller
         $data['sidebar'] = DB::table('sidebar')->where('role_id', 2)->get(); 
         $data['state'] = 'update';
 
-        $data['location'] = DB::table('location')->where('status', 'A')->get();
-        $data['fields'] = DB::table('kamar')->where('id', $id)->get();
+        $data['location'] = DB::table('locations')->where('status', 'A')->get();
+        $data['jeniskamar'] = DB::table('jeniskamars')->get();
+
+        $data['fields'] = DB::table('kamars')->where('id', $id)->get();
+        $data['detail'] = DB::table('kamar_details')->where('kamar_id', $id)->get();
         // dd($data['fields']);
 
         return view('back.kamar.kamar_form', $data);
@@ -83,30 +97,33 @@ class KamarController extends Controller
             'description' => 'required',
             'number' => 'required',
             'floor' => 'required',
-            'type' => 'required',
-            'location' => 'required',
+            'jeniskamar_id' => 'required',
+            'location_id' => 'required',
+            'harga' => 'required',
         ]);
 
         if($request->state == 'create'){
-            DB::table('kamar')->insert([
+            DB::table('kamars')->insert([
+                'jeniskamar_id' => $request->jeniskamar_id,
+                'location_id' => $request->location_id,
                 'name' => $request->name,
                 'description' => $request->description,
                 'number' => $request->number,
                 'floor' => $request->floor,
-                'type' => $request->type,
-                'location' => $request->location,
+                'harga' => $request->harga,
                 'status' => 'A',
                 'created_at' => Carbon::now(),
                 'updated_at' => NULL,
             ]);
         }else if($request->state == 'update'){
-            DB::table('kamar')->where('id', $request->id)->update([
+            DB::table('kamars')->where('id', $request->id)->update([
+                'jeniskamar_id' => $request->jeniskamar_id,
+                'location_id' => $request->location_id,
                 'name' => $request->name,
                 'description' => $request->description,
                 'number' => $request->number,
                 'floor' => $request->floor,
-                'type' => $request->type,
-                'location' => $request->location,
+                'harga' => $request->harga,
                 'status' => $request->status,
                 'updated_at' => Carbon::now(),
             ]);
@@ -116,11 +133,11 @@ class KamarController extends Controller
     }
 
     public function delete($id){
-        DB::table('kamar')->where('id', $id)->delete();
+        DB::table('kamars')->where('id', $id)->delete();
     }
 
     public function approve($id){
-        DB::table('kamar')->where('id', $id)->update([
+        DB::table('kamars')->where('id', $id)->update([
             'status' => 'R',
         ]);
     }
