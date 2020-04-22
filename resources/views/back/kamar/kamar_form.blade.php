@@ -39,7 +39,7 @@
 
             @foreach ($fields as $fields)
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             @if($state == 'create')
@@ -87,14 +87,14 @@
 
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-3">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Nama Kamar</label>
                                                         <input type="text" class="form-control" id="name" name="name"
                                                             placeholder="Nama Kamar" value="{{ $fields->name }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-2">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label>Nomor Kamar</label>
                                                         <input type="text" class="form-control" id="number"
@@ -102,14 +102,14 @@
                                                             value="{{ $fields->number }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-1">
+                                                <div class="col-md-1">
                                                     <div class="form-group">
                                                         <label>Lantai Kamar</label>
                                                         <input type="text" class="form-control" id="floor" name="floor"
                                                             placeholder="floor" value="{{ $fields->floor }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-3">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Tipe Kamar</label>
                                                         <select class="form-control select2" id="jeniskamar_id" name="jeniskamar_id">
@@ -122,7 +122,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-3">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Harga</label>
                                                         <div class="input-group">
@@ -139,7 +139,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-8">
+                                                <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label>Deskripsi Kamar</label>
                                                         <input type="text" class="form-control" id="description"
@@ -147,7 +147,7 @@
                                                             value="{{ $fields->description }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Lokasi</label>
                                                         <select class="form-control select2" id="location_id"
@@ -165,7 +165,7 @@
                                         </div>
                                         <div class="card-footer text-right">
                                             <div class="row">
-                                                <div class="col-6 text-left">
+                                                <div class="col-md-6 text-left">
                                                     Status : &nbsp;
                                                     @if($fields->status == 'A')
                                                     <span class="badge badge-success">Active</span>
@@ -177,7 +177,7 @@
                                                     <span class="badge badge-danger">Inactive</span>
                                                     @endif
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-md-6">
                                                     <button class="btn btn-primary mr-1" type="submit">Submit</button>
                                                     <a href="{{ url()->previous() }}"
                                                         class="btn btn-secondary">Cancel</a>

@@ -5,7 +5,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <a href="{{ url()->previous() }}" class="mr-2"><i class="fas fa-arrow-left fa-lg"></i></a>
+            <a href="{{ url('list-transaksi') }}" class="mr-2"><i class="fas fa-arrow-left fa-lg"></i></a>
             <h1>{{ $title }}</h1>
         </div>
 
@@ -214,11 +214,22 @@
 
                     <div class="form-group mt-4">
                         <div class="row">
-                            <div class="form-group col-md-4 col-12">
+                            <div class="form-group col-md-6 col-12">
                                 <label>Nama</label>
                                 <div class="input-group">
                                     <input type="text" name="nama_transfer"
                                         class="form-control" required="" value="{{ $payment->nama_transfer }}">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6 col-12">
+                                <label>Tanggal Transfer</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="tanggal_transfer" class="form-control datetimepicker" value="{{ $payment->tanggal_transfer }}">
                                 </div>
                             </div>
                             <div class="form-group col-md-4 col-12">
@@ -229,13 +240,13 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4 col-12">
-                                <label>Rekening Bank</label>
+                                <label>Rekening Transfer</label>
                                 <div class="input-group">
                                     <input type="text" name="rekening_transfer"
                                         class="form-control" required="" value="{{ $payment->rekening_transfer }}">
                                 </div>
                             </div>
-                            <div class="form-group col-md-12 col-12">
+                            <div class="form-group col-md-4 col-12">
                                 <label>Bukti Transfer</label>
                                 <div class="custom-file">
                                     <input type="file" class="form-control" name="bukti_transfer">

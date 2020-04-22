@@ -11,7 +11,7 @@
                     <div class="col-xl-9">
                         <div class="h1-slider-caption">
                             <h1 data-animation="fadeInUp" data-delay=".4s">Omah Saras</h1>
-                            <h3 data-animation="fadeInDown" data-delay=".4s">Kontrakan & Homestay</h3>
+                            <h3 data-animation="fadeInDown" data-delay=".4s">Kost & Homestay</h3>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="col-xl-9">
                         <div class="h1-slider-caption">
                             <h1 data-animation="fadeInUp" data-delay=".4s">Omah Saras</h1>
-                            <h3 data-animation="fadeInDown" data-delay=".4s">Kontrakan & Homestay</h3>
+                            <h3 data-animation="fadeInDown" data-delay=".4s">Kost & Homestay</h3>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="col-xl-9">
                         <div class="h1-slider-caption">
                             <h1 data-animation="fadeInUp" data-delay=".4s">Omah Saras</h1>
-                            <h3 data-animation="fadeInDown" data-delay=".4s">Kontrakan & Homestay</h3>
+                            <h3 data-animation="fadeInDown" data-delay=".4s">Kost & Homestay</h3>
                         </div>
                     </div>
                 </div>
@@ -49,25 +49,25 @@
 
 <!-- TENTANG -->
 <section class="make-customer-area mt-120 fix">
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-10">
         <div class="row">
-            <div class="col-xl-5 col-lg-6">
+            <div class="col-xl-5 col-lg-6 col-sm-6">
                 <div class="customer-img mb-120">
                     <!-- <img src="assets/img/customer/customar1.png" class="customar-img1" alt=""> -->
                     <img src="{{ URL::asset('custom-images/kontrakan/h12.jpg')}}" class="customar-img1" alt="">
                     <div class="service-experience">
-                        <h3>Serba Online</h3>
+                        <h3>Terjangkau & Strategis</h3>
                     </div>
                 </div>
             </div>
-            <div class=" col-xl-4 col-lg-4">
+            <div class=" col-xl-4 col-lg-4 col-sm-6">
                 <div class="customer-caption">
                     <span>Tentang Kita</span>
                     <h2>Pesan Kontrakan atau Homestay dimana saja</h2>
                     <div class="caption-details">
                         <p>Dengan Omah Saras Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
                             kontrakan secara online</p>
-                        <a href="#" class="btn more-btn1">Learn More <i class="ti-angle-right"></i> </a>
+                        <a href="{{ url('/tentang-kamar') }}" class="btn more-btn1">Learn More <i class="ti-angle-right"></i> </a>
                     </div>
                 </div>
             </div>
@@ -125,52 +125,52 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-3 d-flex text-center">
+            <div class="col-xl-3 d-flex justify-content-center text-center">
                 <div class="single-room mb-50">
                     <div class="room-caption">
                         <span style="font-size: 7em; color : green;">
                             <i class="fas fa-tree"></i>
                         </span>
-                        <h3><a href="rooms.html">Taman</a></h3>
+                        <h3>Taman</h3>
                         <div class="per-night">
                             <p>Mempunyai taman di tengah yang menyejukan area kontrakan</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 d-flex text-center">
+            <div class="col-xl-3 d-flex justify-content-center text-center">
                 <div class="single-room mb-50">
                     <div class="room-caption">
                         <span style="font-size: 7em; color : green;">
                             <i class="fas fa-couch"></i>
                         </span>
-                        <h3><a href="rooms.html">Cozy</a></h3>
+                        <h3>Cozy</h3>
                         <div class="per-night">
                             <p>Suasana kontrakan yang cozy bikin enjoy terus setiap hari.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 d-flex text-center">
+            <div class="col-xl-3 d-flex justify-content-center text-center">
                 <div class="single-room mb-50">
                     <div class="room-caption">
                         <span style="font-size: 7em; color : green;">
                             <i class="fas fa-map-marker-alt"></i>
                         </span>
-                        <h3><a href="rooms.html">Lokasi Strategis</a></h3>
+                        <h3>Lokasi Strategis</h3>
                         <div class="per-night">
                             <p>Lokasi kontrakan yang ada dimana-mana dan juga strategis.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 d-flex text-center">
+            <div class="col-xl-3 d-flex justify-content-center text-center">
                 <div class="single-room mb-50">
                     <div class="room-caption">
                         <span style="font-size: 7em; color : green;">
                             <i class="fas fa-money-bill-wave-alt"></i>
                         </span>
-                        <h3><a href="rooms.html">Murah</a></h3>
+                        <h3>Murah</h3>
                         <div class="per-night">
                             <p>Harga yang bisa dibilang terjangkau bagi mahasiswa.</p>
                         </div>
@@ -220,7 +220,7 @@
 <!-- Dining End -->
 
 <!-- Gallery Start -->
-<section class="room-area mt-120">
+<section class="room-area mt-120 mb-120">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8">

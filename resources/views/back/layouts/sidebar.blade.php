@@ -1,7 +1,7 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="#">BCreative Kontrakan</a>
+            <a href="#">Omah Saras</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="#">BC</a>
@@ -14,7 +14,6 @@
                         <span>Website</span>
                     </a>
                 </li>
-
             <li class="menu-header">Dashboard</li>
             @foreach ($sidebar as $sb)                
             @if ($sb->master == 'Dashboard')

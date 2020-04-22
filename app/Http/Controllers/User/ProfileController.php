@@ -66,7 +66,7 @@ class ProfileController extends Controller
     }
 
     public function save(Request $request){
-
+        // dd($request->attachment);
         $this->validate($request, [
             'name' => 'required|min:5',
             'email' => 'required|email',
@@ -75,7 +75,7 @@ class ProfileController extends Controller
             'identity2' => 'required|numeric|min:8',
             'national' => 'required',
             'gender' => 'required',
-            'attachment' => 'file|image|mimes:jpeg,png,jpg|max:3048',
+            'attachment' => 'file|image|mimes:jpeg,png,jpg',
             'password' => ['required','confirmed', new PassConfirm()]
         ]);
 
@@ -92,16 +92,19 @@ class ProfileController extends Controller
             $nik = '';
         }
 
+        $id = Auth::user()->id;
+        $user = User::find($id);
+
         if($request->hasFile('attachment')){
             $avatar = $request->file('attachment');
             $user = Auth::user();
 
-            $filename = $user->name . '_' . $request->identity1 . '.' . $avatar->getClientOriginalExtension();
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
 
             // Delete current image before uploading new image
-            if ($user->attachment !== '') {
+            if ($user->attachment !== null) {
 
-                $usersImage = public_path("user-attachment/{$user->attachment}"); // get previous image from folder
+                $usersImage = public_path('user-attachment/' . $user->attachment); // get previous image from folder
                 if (File::exists($usersImage)) { // unlink or remove previous image from folder
                     unlink($usersImage);
                 }
@@ -111,9 +114,7 @@ class ProfileController extends Controller
             Image::make($avatar)->save( public_path('user-attachment/' . $filename));
             $user->attachment = $filename;
         }
-
-        $id = Auth::user()->id;
-        $user = User::find($id);
+        
         $user->name = $request->name;
         $user->email = $request->email;
         $user->address = $request->address;
@@ -149,7 +150,7 @@ class ProfileController extends Controller
         $data['navbar'] = DB::table('sidebar')->where('role_id', 1)->get();
 
         $this->validate($request, [
-            'profile_pic' => 'required|file|image|mimes:jpeg,png,jpg|max:3048'
+            'profile_pic' => 'required|file|image|mimes:jpeg,png,jpg'
         ]);
 
         if($request->hasFile('profile_pic')){

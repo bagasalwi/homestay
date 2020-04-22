@@ -40,7 +40,7 @@ class LocationDetailController extends Controller
             'updated_at' => null,
         ]);
 
-        return redirect('location/update/' . $request->location_id)->with('success', 'You have successfully upload image.');
+        return redirect('location/update/' . $request->location_id)->with('success', 'Gambar berhasil di-upload!');
     }
 
     public function deleteDetail($id)

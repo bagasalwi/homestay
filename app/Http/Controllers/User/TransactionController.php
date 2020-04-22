@@ -160,8 +160,6 @@ class TransactionController extends Controller
         $data['kamar'] = $transaction->kamar;
         $data['user'] = $transaction->user; //This will return the user model that the kamar belongs to.
 
-        // $payment = Payment::where('transaction_id', 7)->first();
-        // dd($payment->bukti_transfer);
         return view('front.user.bayarkamar', $data);
     }
 
@@ -201,6 +199,7 @@ class TransactionController extends Controller
             ->update([
                 'nama_transfer' => $request->nama_transfer,
                 'bank_transfer' => $request->bank_transfer,
+                'tanggal_transfer' => $request->tanggal_transfer,
                 'rekening_transfer' => $request->rekening_transfer,
                 'bukti_transfer' => $filename,
                 'payment_status' => 'P'

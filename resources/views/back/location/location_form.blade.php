@@ -45,15 +45,13 @@
                                 <h4>{{ $fields->name }}</h4>
                                 <div class="card-header-action">
                                     <div class="dropdown">
-                                        <button class="btn btn-success mr-1" type="submit">Save</button>
-                                        <a href="{{ url()->previous() }}" class="btn btn-danger">Back</a>
                                         <a href="#" class="dropdown-toggle btn btn-primary"
-                                            data-toggle="dropdown">Actions</a>
+                                            data-toggle="dropdown">Opsi</a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             @if ($fields->status != 'A')
                                             <a onclick="approveLocation({{ $fields->id }})"
                                                 class="dropdown-item has-icon"><i class="fas fa-check"></i>
-                                                Set Active</a>
+                                                Aktifkan Lokasi</a>
                                             @endif
                                         </div>
                                     </div>
@@ -83,18 +81,14 @@
                                     <div class="col-6 text-left">
                                         Status : &nbsp;
                                         @if($fields->status == 'A')
-                                        <span class="badge badge-success">Active</span>
-                                        @elseif($fields->status == 'B')
-                                        <span class="badge badge-warning">Booked</span>
-                                        @elseif($fields->status == 'R')
-                                        <span class="badge badge-info">Ready</span>
+                                        <span class="badge badge-success">Aktif</span>
                                         @else
-                                        <span class="badge badge-danger">Inactive</span>
+                                        <span class="badge badge-danger">Tidak Aktif</span>
                                         @endif
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
+                                        <button class="btn btn-primary mr-1" type="submit">SIMPAN</button>
+                                        <a href="{{ url()->previous() }}" class="btn btn-secondary">BATAL</a>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +116,7 @@
                             <h4>Lokasi Galeri</h4>
                             <div class="card-header-action">
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalCreate"><i
-                                        class="fas fa-plus"></i> Create</button>
+                                        class="fas fa-plus"></i> Tambah Gambar</button>
                                 <a data-collapse="#mycard-collapse" class="btn btn-icon btn-secondary" href="#"><i
                                         class="fas fa-minus"></i></a>
                             </div>

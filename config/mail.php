@@ -55,9 +55,10 @@ return [
     |
     */
 
+    'host' => env('MAIL_HOST', 'support@omahsaras.com'),
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'support@omahsaras.com'),
+        'name' => env('MAIL_FROM_NAME', 'Support'),
     ],
 
     /*

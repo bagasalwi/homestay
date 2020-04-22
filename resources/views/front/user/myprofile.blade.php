@@ -108,8 +108,10 @@
                                 </div>
                                 <div class="w-100 d-sm-none"></div>
                                 <div class="float-right mt-sm-0 mt-3">
+                                    @if ($fields->attachment != null)
                                     <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal"><i
-                                            class="fas fa-user-edit"></i> See Attachment</button>
+                                        class="fas fa-user-edit"></i> See Attachment</button>
+                                    @endif
                                     <button class="btn btn-danger" data-toggle="modal" data-target="#kontakDarurat"><i
                                             class="fas fa-user-shield"></i> Kontak Darurat</button>
                                     <a href="{{ $url_update }}" class="btn btn-primary"><i class="fas fa-user-edit"></i>

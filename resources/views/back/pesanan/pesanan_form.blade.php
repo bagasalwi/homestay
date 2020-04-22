@@ -63,7 +63,7 @@
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
                                             role="tab" aria-controls="home" aria-selected="true">Detail Pesanan</a>
                                     </li>
-                                    @if($transaction->transaction_status == 'P' || $transaction->transaction_status == 'A')
+                                    @if($transaction->transaction_status == 'P' || $transaction->transaction_status == 'A' || $transaction->transaction_status == 'V')
                                     <li class="nav-item">
                                         <a class="nav-link" id="detail-tab" data-toggle="tab" href="#detail" role="tab"
                                             aria-controls="detail" aria-selected="false">Bukti Bayar</a>
@@ -79,13 +79,13 @@
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Pemesan</label>
-                                                        <h6>{{ $transaction->user->name }}</h6>
+                                                        <h6><a href="{{ url('user/update') .'/'.  $transaction->user_id }}">{{ $transaction->user->name }}</a></h6>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2">
                                                     <div class="form-group">
                                                         <label>Kamar</label>
-                                                        <h6>{{ $transaction->kamar->name }}</h6>
+                                                        <h6><a href="{{ url('kamar/update') .'/'.  $transaction->kamar->id }}">{{ $transaction->kamar->name }}</a></h6>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-2">
@@ -184,7 +184,9 @@
                             </div>
                             <div class="card-footer text-center">
                                 <a href="{{ url()->previous() }}" class="btn btn-lg btn-secondary mr-2">CANCEL</a>
-                                @if ($transaction->transaction_status == 'A')
+                                @if ($transaction->transaction_status == 'A'|| $transaction->transaction_status == 'V')
+                                <button class="btn btn-lg btn-success disabled">APPROVE</button>
+                                @elseif($transaction->transaction_status == 'C' || $transaction->transaction_status == 'N')
                                 <button class="btn btn-lg btn-success disabled">APPROVE</button>
                                 @else
                                 <button class="btn btn-lg btn-success" onclick="ApproveTransaction({{ $transaction->id }})">APPROVE</button>
@@ -213,7 +215,7 @@
         url: "{{ url('pesanan/approve') }}" + "/" + id,
         success: function(){
             swal("Done!","Transaski berhasil di approve!","success");
-            // setInterval('window.location.reload()', 1000);
+            setInterval('window.location.reload()', 1000);
         },
         error: function(){
             swal("Error!", "", "Error");

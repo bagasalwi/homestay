@@ -60,7 +60,7 @@
                         <h3>{{ $kamar->name }}</h3>
                         <div class="per-night">
                             <p>{{ $kamar->description }}</p>
-                            <a href="{{ url('kamar-detail/' . $kamar->id) }}" class="btn select-btn">Pilih</a>
+                            <a href="{{ url('jenis-kamar/detail/' . $kamar->id) }}" class="btn select-btn">Pilih</a>
                         </div>
                     </div>
                 </div>

@@ -6,23 +6,31 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'User\FrontController@index');
 Route::get('/tentang-kamar', 'User\FrontController@tentangkamar');
 
-// jenis kamar front route
-Route::get('/jenis-kamar', 'User\FrontController@pilihjenis');
-Route::get('/jenis-kamar/{id}', 'User\FrontController@pilihkamar');
-Route::get('/kamar-detail/{id}', 'User\FrontController@kamar_detail');
+// lokasi front
+Route::prefix('jenis-kamar')->group(function () {
+    Route::get('/', 'User\FrontKamarController@pilihjenis');
+    Route::get('/{id}', 'User\FrontKamarController@pilihkamar');
+    Route::get('/detail/{lokasi}', 'User\FrontKamarController@kamar_detail');
+});
 
 // lokasi front
-Route::get('/lokasi', 'User\FrontController@lokasi');
-Route::get('/lokasi/{lokasi}', 'User\FrontController@lokasi_detail');
+Route::prefix('lokasi')->group(function () {
+    Route::get('/', 'User\FrontLokasiController@lokasi');
+    Route::get('/{lokasi}', 'User\FrontLokasiController@lokasi_detail');
+});
 
 
 Route::get('/dashboard', 'DashboardController@index')->name('home');
 
-
-/************************************/
 /************* BACKEND **************/
-/************************************/
 Route::group(['middleware' => 'auth'], function() {
+
+    // User Controller
+    Route::prefix('user')->group(function () {
+        // User/....
+        Route::get('/', 'UserController@index');
+        Route::get('show/{id}', 'UserController@show');
+    });
 
     // Sidebar Controller
     Route::prefix('sidebar')->group(function () {

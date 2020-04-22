@@ -52,7 +52,7 @@
         @elseif(count($transaction) == 0)
         <div class="d-flex justify-content-center">
             <div class="col-6 mb-4 text-center">
-                <img src="{{ URL::asset('front/myimages/undraw/8.svg')}}" alt="Image" class="img-fluid">
+                <img src="{{ URL::asset('custom-images/undraw/8.svg')}}" alt="Image" class="img-fluid">
                 <h4>Kamu belum punya kamar yang aktif!</h4>
                 <p>
                     kamu bisa cek menu kamar untuk melihat jenis kamar dan memesan langsung.

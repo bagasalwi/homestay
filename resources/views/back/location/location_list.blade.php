@@ -9,10 +9,14 @@
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">Manage Lokasi</h2>
-            <p class="section-lead">
-                Menu pengelola Lokasi untuk kontrakan dan homestay.
-            </p>
+            <div class="card" style="width:100%;">
+                <div class="card-body">
+                    <h4 class="card-title text-primary">Tambah Lokasi ?</h4>
+                    <hr>
+                    <p class="card-text">Klik tombol dibawah ini untuk menambah lokasi baru untuk di daftarkan pada website omah saras!</p>
+                    <a href="{{ $url_create }}" class="btn btn-lg btn-primary">Tambah lokasi Baru</a>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-12">
@@ -22,7 +26,6 @@
                                 <h4>List Lokasi</h4>
                             </div>
                             <div class="col-1">
-                                <a href="{{ $url_create }}" class="btn btn-primary">Create New</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -50,16 +53,15 @@
                                             <td>{{ $row->name }}</td>
                                             <td>{{ $row->description }}</td>
                                             @if($row->status == 'A')
-                                            <td><span class="badge badge-success">Active</span></td>
+                                            <td><span class="badge badge-success">Aktif</span></td>
                                             @else
-                                            <td><span class="badge badge-danger">Inactive</span></td>
+                                            <td><span class="badge badge-danger">Tidak Aktif</span></td>
                                             @endif
                                             <td class="text-center">
                                                 <a href="{{ $url_update }}/{{ $row->id }}"
-                                                    class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                    class="btn btn-primary">EDIT</a>
                                                 <button class="btn btn-danger"
-                                                    onclick="deleteLocation({{ $row->id }})"><i
-                                                        class="fas fa-trash"></i></button>
+                                                    onclick="deleteLocation({{ $row->id }})">HAPUS</button>
                                             </td>
                                         </tr>
                                         @endforeach

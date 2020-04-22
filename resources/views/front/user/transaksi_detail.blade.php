@@ -63,7 +63,7 @@
         @elseif(count($transaction) == 0)
         <div class="d-flex justify-content-center">
             <div class="col-6 mb-4 text-center">
-                <img src="{{ URL::asset('front/myimages/undraw/8.svg')}}" alt="Image" class="img-fluid">
+                <img src="{{ URL::asset('custom-images/undraw/8.svg')}}" alt="Image" class="img-fluid">
                 <h4>Kamu belum punya kamar yang aktif!</h4>
                 <p>
                     kamu bisa cek menu kamar untuk melihat jenis kamar dan memesan langsung.
@@ -153,13 +153,21 @@
                             </div>
                         </div>
                     </div>
-                    @if ($transaction->transaction_status == 'P' || $transaction->transaction_status == 'A')
+                    @if ($transaction->transaction_status == 'P' || $transaction->transaction_status == 'A' ||
+                    $transaction->transaction_status == 'V' || $transaction->transaction_status == 'R')
                     @else
-                    <div class="card-footer text-right">
-                        <button onclick="CancelKamar({{ $transaction->id }})" class="btn btn-danger">Batalkan
-                            Pesanan</button>
-                        <button data-id="{{ $transaction->id }}" id="btn-modal" class="btn btn-primary"
-                            data-toggle="modal" data-target="#exampleModalCenter">Tentukan tanggal</button>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <h6 class="text-danger" id="countdown"></h6>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <button onclick="CancelKamar({{ $transaction->id }})" class="btn btn-danger">Batalkan
+                                    Pesanan</button>
+                                <button data-id="{{ $transaction->id }}" id="btn-modal" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#exampleModalCenter">Tentukan tanggal</button>
+                            </div>
+                        </div>
                     </div>
                     @endif
                 </div>
@@ -185,8 +193,10 @@
                         </div>
                     </div>
                     <div class="card-footer bg-whitesmoke">
-                        @if($transaction->transaction_status == 'A')
+                        @if($transaction->transaction_status == 'A' || $transaction->transaction_status == 'R')
                         <a class="btn btn-lg btn-outline-primary btn-block disabled"><strong>LUNAS</strong></a>
+                        @elseif ($transaction->transaction_status == 'V')
+                        <a type="submit" class="btn btn-lg btn-outline-primary btn-block disabled"><strong>HANGUS</strong></a>
                         @elseif ($transaction->book_startdate)
                         <a href="{{ url('bayarkamar/' . $transaction->id) }}" type="submit"
                             class="btn btn-lg btn-outline-primary btn-block"><strong>LANJUTKAN</strong></a>
@@ -196,6 +206,39 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                CountDownTimer('{{ $transaction->created_at }}', 'countdown');
+                function CountDownTimer(dt, id)
+                {
+                    var end = new Date('{{ \Carbon\Carbon::parse($transaction->created_at)->addHours(5) }}');
+                    var _second = 1000;
+                    var _minute = _second * 60;
+                    var _hour = _minute * 60;
+                    var _day = _hour * 24;
+                    var timer;
+                    function showRemaining() {
+                        var now = new Date();
+                        var distance = end - now;
+                        if (distance < 0) {
+
+                            clearInterval(timer);
+                            document.getElementById(id).innerHTML = '<b>void</b> ';
+                            return;
+                        }
+                        var days = Math.floor(distance / _day);
+                        var hours = Math.floor((distance % _day) / _hour);
+                        var minutes = Math.floor((distance % _hour) / _minute);
+                        var seconds = Math.floor((distance % _minute) / _second);
+
+                        document.getElementById(id).innerHTML = days + 'days ';
+                        document.getElementById(id).innerHTML += hours + 'hrs ';
+                        document.getElementById(id).innerHTML += minutes + 'mins ';
+                        document.getElementById(id).innerHTML += seconds + 'secs';
+                    }
+                    timer = setInterval(showRemaining, 1000);
+                }
+            </script>
             @endforeach
         </div>
         @endif

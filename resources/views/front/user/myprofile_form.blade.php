@@ -39,7 +39,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Full Name</label>
+                                        <label>Nama Lengkap</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-12 col-12">
-                                        <label>Address (Last Address / Home Address)</label>
+                                        <label>Alamat (Alamat asli / alamat orang tua)</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Phone Number</label>
+                                        <label>Nomor Telepon</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -91,7 +91,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3 col-12">
-                                        <label>Date of Birth <strong>*Optional</strong></label>
+                                        <label>Tanggal Lahir <strong>*Opsional</strong></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-2 col-12">
-                                        <label>Gender</label>
+                                        <label>Jenis Kelamin</label>
                                         <div class="custom-control custom-radio">
                                             <input type="radio" id="customRadio1" name="gender"
                                                 class="custom-control-input" value="male"
@@ -122,11 +122,11 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-12 col-12">
-                                        <label>No Identity</label>
+                                        <label>Identitas</label>
                                         <div class="input-group">
                                             <select class="custom-select col-md-3 col-12" id="inputGroupSelect05"
                                                 name="identity1" required="">
-                                                <option disabled value="" selected>Choose...</option>
+                                                <option disabled value="" selected>Pilih...</option>
                                                 <option value="nik">NIK</option>
                                                 <option value="paspor">Paspor</option>
                                             </select>
@@ -135,7 +135,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4 col-12">
-                                        <label>Attachment</label>
+                                        <label>Foto Identitas</label>
                                         <div class="custom-file">
                                             <input type="file" class="form-control" name="attachment">
                                         </div>
@@ -144,7 +144,7 @@
                                         </small>
                                     </div>
                                     <div class="form-group col-md-4 col-12">
-                                        <label>Nationally</label>
+                                        <label>Kewarganegaraan</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -157,7 +157,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4 col-12">
-                                        <label>Tempat Kerja <strong>*Optional</strong></label>
+                                        <label>Tempat Kerja <strong>*Opsional</strong></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -186,7 +186,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>No kerabat yang bisa dihubungi (Contoh:adik/kakak/ayah/ibu) <strong>*Optional</strong></label>
+                                        <label>No kerabat yang bisa dihubungi (Contoh:adik/kakak/ayah/ibu) <strong>*Opsional</strong></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -207,7 +207,7 @@
                                                 <button class="close" data-dismiss="alert">
                                                     <span>&times;</span>
                                                 </button>
-                                                Enter your password to change current user data.
+                                                Masukan password kamu untuk konfirmasi meng-update profil!
                                             </div>
                                         </div>
                                         {{-- <label>Enter your password to change current user data.</label> --}}

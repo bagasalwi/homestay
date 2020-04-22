@@ -40,11 +40,17 @@ class DeleteTransaction extends Command
      */
     public function handle()
     {
-        $transaction = DB::table('transactions')->where('created_at', '<=', Carbon::now()->subMinutes(1))->first();
-        $kamar = DB::table('kamars')->where('user_id', $transaction->user_id)->first();
-        $payment = DB::table('payments')->where('transaction_id', $transaction->id)->first();
+        $transaction = DB::table('transactions')
+            ->where('transaction_status', '!=', 'P')                
+            ->orWhere('transaction_status', '!=', 'A')                
+            ->orWhere('transaction_status', '!=', 'R')                
+            ->orWhere('created_at', '<=', Carbon::now()->subHours(5))->first();
 
+        // dd($transaction);
         if($transaction){
+            $kamar = DB::table('kamars')->where('user_id', $transaction->user_id)->first();
+            $payment = DB::table('payments')->where('transaction_id', $transaction->id)->first();
+
             DB::table('transactions')->where('id', $transaction->id)->delete();
             DB::table('kamars')->where('id', $kamar->id)->update([
                 'user_id' => NULL

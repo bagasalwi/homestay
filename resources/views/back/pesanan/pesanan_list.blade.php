@@ -79,6 +79,8 @@
                                                 <a href="{{ $url_edit }}/{{ $row->id }}" class="btn btn-info">PILIH</a>
                                                 @if ($row->transaction_status == 'A')
                                                 <button class="btn btn-danger disabled">HANGUSKAN</button>   
+                                                @elseif($row->transaction_status == 'V')
+                                                <button class="btn btn-danger disabled">HANGUSKAN</button>   
                                                 @else
                                                 <button class="btn btn-danger" onclick="VoidTransaction({{ $row->id }})">HANGUSKAN</button>   
                                                 @endif
