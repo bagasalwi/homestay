@@ -242,10 +242,12 @@
                     </ol>
                 </div>
                 <div class="modal-footer">
-                    <input type="checkbox" class="float-left"
+                    <div class="float-left mr-4">
+                        <input type="checkbox" class="text-left"
                         onchange="document.getElementById('test1').disabled = !this.checked;" /> Saya setuju dengan
                     semua persyaratan diatas.
-                    <br>
+                    </div>
+                    {{-- <br> --}}
                     <button type="button" class="genric-btn danger radius" data-dismiss="modal">Close</button>
                     <button type="submit" class="genric-btn primary radius" id="test1" disabled
                         target="_blank">Pesan</button>

@@ -7,10 +7,13 @@ use Illuminate\Support\Collection;
 use Carbon\Carbon;
 use Auth;
 Use DB;
+Use App\Location;
+Use App\Location_detail;
+Use File;
 
 class LocationController extends Controller
 {
-    public $menu_id = 'Location';
+    public $menu_id = 'Lokasi';
 
     public function __construct()
     {
@@ -80,7 +83,7 @@ class LocationController extends Controller
             DB::table('locations')->insert([
                 'name' => $request->name,
                 'description' => $request->description,
-                'status' => 'I',
+                'status' => 'A',
                 'created_at' => Carbon::now(),
                 'updated_at' => NULL,
             ]);
@@ -97,7 +100,18 @@ class LocationController extends Controller
     }
 
     public function delete($id){
-        DB::table('locations')->where('id', $id)->delete();
+        $location_detail = Location_detail::where('location_id', $id)->get();
+
+        foreach($location_detail as $detail){
+            $path = public_path("custom-images/location/{$detail->image}");
+        
+            if (File::exists($path))
+            {
+                File::delete($path);
+            }
+        }
+        Location_detail::where('location_id', $id)->delete();
+        Location::where('id', $id)->delete();
     }
 
     public function approve($id){

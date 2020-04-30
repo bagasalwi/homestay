@@ -34,7 +34,7 @@
             @endif
 
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>{{ $user->name }} </h4>
@@ -53,28 +53,28 @@
                                     aria-labelledby="home-tab">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-3">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Nama Lengkap</label>
                                                     <input type="text" class="form-control" value="{{ $user->name }}"
                                                         readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Email</label>
                                                     <input type="text" class="form-control" value="{{ $user->email }}"
                                                         readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>No Telepon</label>
                                                     <input type="text" class="form-control" value="{{ $user->telepon }}"
                                                         readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Negara Asal</label>
                                                     <input type="text" class="form-control"
@@ -83,28 +83,28 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Alamat Asli</label>
                                                     <input type="text" class="form-control" value="{{ $user->address }}"
                                                         readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Tempat Kerja</label>
                                                     <input type="text" class="form-control"
                                                         value="{{ $user->tempat_kerja }}" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-1">
+                                            <div class="col-md-1">
                                                 <div class="form-group">
                                                     <label>Tipe</label>
                                                     <input type="text" class="form-control"
                                                         value="{{ $user->identity1 }}" readonly>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Nomor Induk</label>
                                                     <input type="text" class="form-control"
@@ -185,11 +185,11 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label>Nama Kerabat </label>
                         <input type="text" class="form-control" value="{{ $user->nama_kerabat }}" disabled>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label>No Telepon Kerabat</label>
                         <input type="text" class="form-control" value="{{ $user->no_kerabat }}" required="" disabled>
                     </div>

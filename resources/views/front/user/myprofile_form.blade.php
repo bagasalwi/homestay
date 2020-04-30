@@ -134,14 +134,20 @@
                                                 value="{{ old('identity2',$fields->identity2) }}">
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-4 col-12">
+                                    <div class="form-group col-md-12 col-12">
                                         <label>Foto Identitas</label>
                                         <div class="custom-file">
-                                            <input type="file" class="form-control" name="attachment">
+                                            @if ($fields->attachment)
+                                            <img width="150" height="150" id='img-upload'
+                                                src="{{ URL::asset('user-attachment/'. $fields->attachment)}}" />
+                                            @else
+                                            <img width="150" height="150" id='img-upload' />
+                                            @endif
+                                            <input type="file" name="attachment" id="imgInp" />
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                Attachment berupa fotocopy ktp atau paspor dengan jenis jpg,png dan pdf.
+                                            </small>
                                         </div>
-                                        <small id="passwordHelpBlock" class="form-text text-muted">
-                                            Attachment berupa fotocopy ktp atau paspor dengan jenis jpg,png dan pdf.
-                                        </small>
                                     </div>
                                     <div class="form-group col-md-4 col-12">
                                         <label>Kewarganegaraan</label>
@@ -173,7 +179,8 @@
                                 <hr>
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Nama kerabat(Contoh:adik/kakak/ayah/ibu) <strong>*Optional</strong></label>
+                                        <label>Nama kerabat(Contoh:adik/kakak/ayah/ibu)
+                                            <strong>*Optional</strong></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -186,7 +193,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>No kerabat yang bisa dihubungi (Contoh:adik/kakak/ayah/ibu) <strong>*Opsional</strong></label>
+                                        <label>No kerabat yang bisa dihubungi (Contoh:adik/kakak/ayah/ibu)
+                                            <strong>*Opsional</strong></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
@@ -249,4 +257,46 @@
         </div>
     </section>
 </div>
+@endsection
+
+@section('script')
+
+<script>
+    $(document).ready( function() {
+        
+        $(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.custom-file').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+</script>    
 @endsection

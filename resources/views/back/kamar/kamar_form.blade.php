@@ -46,17 +46,6 @@
                             <h4>Buat Kamar Baru</h4>
                             @else
                             <h4>{{ $fields->number }} - {{ $fields->name }} &nbsp;</h4>
-                            <div class="card-header-action">
-                                <div class="dropdown">
-                                    <a href="#" class="dropdown-toggle btn btn-primary"
-                                        data-toggle="dropdown">Actions</a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a onclick="approveKamar({{ $fields->id }})" class="dropdown-item has-icon"><i
-                                                class="fas fa-check"></i>
-                                            Set Ready</a>
-                                    </div>
-                                </div>
-                            </div>
                             @endif
                         </div>
                         <div class="card-body">
@@ -178,9 +167,9 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                                                    <button class="btn btn-lg btn-primary mr-1" type="submit">SIMPAN</button>
                                                     <a href="{{ url()->previous() }}"
-                                                        class="btn btn-secondary">Cancel</a>
+                                                        class="btn btn-lg btn-secondary">BATAL</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -189,7 +178,7 @@
                                 @if ($state == 'update')
                                 <div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="detail-tab">
                                     <button class="btn btn-primary float-right mb-2" data-toggle="modal" data-target="#modalCreate">
-                                        <i class="fas fa-plus"></i> Create Detail
+                                        <i class="fas fa-plus"></i> TAMBAH GAMBAR
                                     </button>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-1">
@@ -223,8 +212,7 @@
                                                     @endif
                                                     <td class="text-center">
                                                         <button class="btn btn-danger"
-                                                            onclick="deleteDetailKamar({{ $row->id }})"><i
-                                                                class="fas fa-trash"></i></button>
+                                                            onclick="deleteDetailKamar({{ $row->id }})">HAPUS GAMBAR</button>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -277,29 +265,6 @@
 
 
 <script>
-    function approveKamar(id){       
-        swal({
-        title: "Ready?",
-        text: "Apa kamu ingin mengganti status kamar ini menjadi ready?",
-        icon: "info",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-          if (willDelete) {
-            $.ajax({
-            url: "{{ url('kamar/approve') }}" + "/" + id,
-            success: function(){
-                swal("Done!","Kamar sudah di set ke status ready!","success");
-                setInterval('window.location.reload()', 1000);
-            },
-            error: function(){
-                swal("Error!", "Error", "Error");
-            }});
-        }
-      });
-    }
-
     function deleteDetailKamar(id){       
         swal({
         title: "Delete?",

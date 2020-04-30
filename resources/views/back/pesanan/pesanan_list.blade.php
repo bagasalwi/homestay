@@ -61,6 +61,9 @@
                                         }else if($row->payment_status == 'V'){
                                         $status = 'HANGUS';
                                         $status_color = 'danger';
+                                        }else if($row->payment_status == 'R'){
+                                        $status = 'BELUM DIPERPANJANG';
+                                        $status_color = 'danger';
                                         }
                                         @endphp
 

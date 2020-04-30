@@ -59,7 +59,7 @@
                                             @endif
                                             <td class="text-center">
                                                 <a href="{{ $url_update }}/{{ $row->id }}"
-                                                    class="btn btn-primary">EDIT</a>
+                                                    class="btn btn-primary">PILIH</a>
                                                 <button class="btn btn-danger"
                                                     onclick="deleteLocation({{ $row->id }})">HAPUS</button>
                                             </td>

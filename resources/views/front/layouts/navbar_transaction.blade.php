@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg main-navbar">
     <a href="{{ url('/') }}" class="navbar-brand sidebar-gone-hide">Omah Saras</a>
     <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
-    <div class="nav-collapse">
+    {{-- <div class="nav-collapse">
         <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
             <i class="fas fa-ellipsis-v"></i>
         </a>
@@ -11,7 +11,7 @@
             <li class="nav-item {{ $title == 'Ketentuan' ? 'active' : '' }}"><a href="{{ url('ketentuan') }}"
                     class="nav-link">Ketentuan</a></li>
         </ul>
-    </div>
+    </div> --}}
     <ul class="navbar-nav navbar-right ml-auto">
         <figure class="avatar ">
             <img src="{{ URL::asset('user-images/' . Auth::user()->profile_pic) }}" alt="...">

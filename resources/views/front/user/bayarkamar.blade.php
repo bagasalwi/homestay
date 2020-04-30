@@ -205,7 +205,7 @@
             </div>
             <form action="{{ url('/konfirmasipembayaran') }}" enctype="multipart/form-data" method="POST" id="form">
                 @csrf
-                <input type="hidden" name="transaction_id" id="transaction_id" value="">
+                <input type="hidden" name="transaction_id" id="transaction_id" value="{{ $transaction->id }}">
 
                 <div class="modal-body">
                     <span>

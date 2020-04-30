@@ -27,6 +27,8 @@ class TransactionController extends Controller
         $data['title'] = 'My Dashboard';
         $data['navbar'] = DB::table('sidebar')->where('role_id', 1)->get();
 
+        $data['transactionLatest'] = Transaction::where('user_id', Auth::user()->id)->latest()->take(5)->get();
+
         return view('front.user.index', $data);
     }
 
@@ -155,7 +157,7 @@ class TransactionController extends Controller
         $data['navbar'] = DB::table('sidebar')->where('role_id', 1)->get();
         
         $transaction = Transaction::with('payment.transaction')->find($id);
-        $data['transaction'] = $transaction->first();
+        $data['transaction'] = $transaction;
         $data['payment'] = $transaction->payment->first();
         $data['kamar'] = $transaction->kamar;
         $data['user'] = $transaction->user; //This will return the user model that the kamar belongs to.

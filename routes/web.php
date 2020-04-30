@@ -52,24 +52,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('delete/{id}', 'JenisKamarController@delete');
     });
 
-    // Kamar Controller
-    Route::prefix('kamar')->group(function () {
-        // kamar/....
-        Route::get('/', 'KamarController@index');
-        Route::get('create', 'KamarController@create');
-        Route::get('update/{id}', 'KamarController@update');
-        Route::post('save', 'KamarController@save');
-        Route::get('delete/{id}', 'KamarController@delete');
-        Route::get('approve/{id}', 'KamarController@approve');
-    });
-
-    // Kamar Detail
-    Route::prefix('kamar-detail')->group(function () {
-        // kamar-detail/....  
-        Route::post('create', 'KamarDetailController@createDetail');
-        Route::get('delete/{id}', 'KamarDetailController@deleteDetail');
-    });
-
     // Location
     Route::prefix('location')->group(function () {
         // location/....
@@ -78,7 +60,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('update/{id}', 'LocationController@update');
         Route::post('save', 'LocationController@save');
         Route::get('delete/{id}', 'LocationController@delete');
-        Route::get('approve/{id}', 'LocationController@approve');
     });
 
     // Location Detail
@@ -88,6 +69,25 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('delete/{id}', 'LocationDetailController@deleteDetail');
     });
 
+    // Kamar Controller
+    Route::prefix('kamar')->group(function () {
+        // kamar/....
+        Route::get('/', 'KamarController@index');
+        Route::get('create', 'KamarController@create');
+        Route::get('update/{id}', 'KamarController@update');
+        Route::post('save', 'KamarController@save');
+        Route::get('delete/{id}', 'KamarController@delete');
+    });
+
+    // Kamar Detail
+    Route::prefix('kamar-detail')->group(function () {
+        // kamar-detail/....  
+        Route::post('create', 'KamarDetailController@createDetail');
+        Route::get('delete/{id}', 'KamarDetailController@deleteDetail');
+    });
+
+    
+
     // Pesanan
     Route::prefix('pesanan')->group(function () {
         // location/....
@@ -96,16 +96,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('void/{id}', 'PesananController@create');
         Route::get('approve/{id}', 'PesananController@approve');
     });
-
-
-    Route::prefix('transaksi')->group(function () {
-        // location/....
-        Route::get('/', 'TransaksiController@index');
-        Route::get('edit/{id}', 'TransaksiController@edit');
-        Route::get('void/{id}', 'TransaksiController@create');
-        Route::get('approve/{id}', 'TransaksiController@approve');
-    });
-
 
     /*****************/
     /** TRANSACTION **/

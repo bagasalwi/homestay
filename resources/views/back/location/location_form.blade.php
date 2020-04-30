@@ -43,19 +43,6 @@
                                 <h4>Buat Lokasi Baru</h4>
                                 @else
                                 <h4>{{ $fields->name }}</h4>
-                                <div class="card-header-action">
-                                    <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle btn btn-primary"
-                                            data-toggle="dropdown">Opsi</a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            @if ($fields->status != 'A')
-                                            <a onclick="approveLocation({{ $fields->id }})"
-                                                class="dropdown-item has-icon"><i class="fas fa-check"></i>
-                                                Aktifkan Lokasi</a>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
                                 @endif
                             </div>
                             <div class="card-body">
@@ -158,8 +145,7 @@
                                                 @endif
                                                 <td class="text-center">
                                                     <button class="btn btn-danger"
-                                                        onclick="deleteDetailLocation({{ $row->id }})"><i
-                                                            class="fas fa-trash"></i></button>
+                                                        onclick="deleteDetailLocation({{ $row->id }})">HAPUS</button>
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -183,7 +169,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create</h5>
+                <h5 class="modal-title">Tambah gambar lokasi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -195,15 +181,15 @@
                     <input type="hidden" name="location_id" value="{{ $fields->id }}">
                     <input type="hidden" name="location" value="{{ $fields->name }}">
                     <div class="form-group">
-                        <label>Upload Image Galeri</label>
+                        <label>Gambar</label>
                         <div class="custom-file">
                             <input type="file" class="form-control" name="image">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer bg-whitesmoke br">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">TUTUP</button>
+                    <button type="submit" class="btn btn-primary">SIMPAN</button>
                 </div>
             </form>
         </div>
@@ -212,33 +198,10 @@
 
 
 <script>
-    function approveLocation(id){       
-        swal({
-        title: "Warning?",
-        text: "Apa kamu ingin mengganti status lokasi ini menjadi aktif?",
-        icon: "info",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-          if (willDelete) {
-            $.ajax({
-            url: "{{ url('location/approve') }}" + "/" + id,
-            success: function(){
-                swal("Done!","Lokasi sudah di set ke status Aktif!","success");
-                setInterval('window.location.reload()', 1000);
-            },
-            error: function(){
-                swal("Error!", "Error", "Error");
-            }});
-        }
-      });
-    }
-
     function deleteDetailLocation(id){       
         swal({
-        title: "Delete?",
-        text: "Apa kamu ingin men-delete gambar location ini?",
+        title: "Hapus?",
+        text: "Apa kamu ingin menghapus gambar ini?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -248,7 +211,7 @@
             $.ajax({
             url: "{{ url('location-detail/delete') }}" + "/" + id,
             success: function(){
-                swal("Done!","location udah ke delete ya!","success");
+                swal("Done!","Gambar berhasil di hapus!","success");
                 setInterval('window.location.reload()', 1000);
             },
             error: function(){

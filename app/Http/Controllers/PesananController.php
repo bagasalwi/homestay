@@ -9,6 +9,7 @@ use Auth;
 Use DB;
 use App\Transaction;
 use App\Payment;
+use App\Kamar;
 
 class PesananController extends Controller
 {
@@ -50,6 +51,8 @@ class PesananController extends Controller
 
         $user = Auth::user();
 
+        $data = Transaction::where('id', $id)->first();
+
         Transaction::where('id', $id)
             ->update([
                 'transaction_status' => 'A',
@@ -64,5 +67,11 @@ class PesananController extends Controller
                 'approved_by' => $user->name,
                 'approved_date' => Carbon::now(),
             ]);
+
+        Kamar::where('user_id', $data->user_id)->update([
+            'start_date' => $data->book_startdate,
+            'end_date' => $data->book_enddate,
+            'transaction_id' => $data->id,
+        ]);
     }
 }

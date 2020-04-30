@@ -42,7 +42,7 @@
 
         <div class="section-body">
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="card author-box card-primary">
                         <div class="card-body">
                             <div class="author-box-left">
@@ -61,46 +61,46 @@
                                     <h6>{{ $fields->email }}</h6>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-4">
+                                    <div class="form-group col-md-4">
                                         <label>Full Name</label>
                                         <input type="text" class="form-control" value="{{ $fields->name }}"
                                             disabled>
                                     </div>
-                                    <div class="form-group col-4">
+                                    <div class="form-group col-md-4">
                                         <label>Email</label>
                                         <input type="text" class="form-control" value="{{ $fields->email }}"
                                             disabled>
                                     </div>
-                                    <div class="form-group col-4">
+                                    <div class="form-group col-md-4">
                                         <label>Telephone Number</label>
                                         <input type="text" class="form-control" value="{{ $fields->telepon }}"
                                             required="" disabled>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-6">
+                                    <div class="form-group col-md-6">
                                         <label>Address</label>
                                         <input type="text" class="form-control" value="{{ $fields->address }}"
                                             disabled>
                                     </div>
-                                    <div class="form-group col-3">
+                                    <div class="form-group col-md-3">
                                         <label>Date of Birth</label>
                                         <input type="text" class="form-control" value="{{ $fields->dob }}"
                                             disabled>
                                     </div>
-                                    <div class="form-group col-3">
+                                    <div class="form-group col-md-3">
                                         <label>Nationally</label>
                                         <input type="text" class="form-control" value="{{ $fields->national }}"
                                             required="" disabled>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-2">
+                                    <div class="form-group col-md-2">
                                         <label>Identity Type</label>
                                         <input type="text" class="form-control" value="{{ $fields->identity1 }}"
                                             required="" disabled>
                                     </div>
-                                    <div class="form-group col-10">
+                                    <div class="form-group col-md-10">
                                         <label>Identity Number</label>
                                         <input type="text" class="form-control" value="{{ $fields->identity2 }}"
                                             required="" disabled>
@@ -158,12 +158,12 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label>Nama Kerabat </label>
                         <input type="text" class="form-control" value="{{ $fields->nama_kerabat }}"
                             disabled>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-6">
                         <label>No Telepon Kerabat</label>
                         <input type="text" class="form-control" value="{{ $fields->no_kerabat }}"
                             required="" disabled>

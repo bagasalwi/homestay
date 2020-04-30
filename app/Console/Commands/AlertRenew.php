@@ -42,34 +42,31 @@ class AlertRenew extends Command
     public function handle()
     {
         $now = Carbon::now()->format('Y-m-d');
+        // $now = '2020-05-26';
         
         // echo $transaction;
-        $transaction1 = Transaction::where('transaction_status', 'A')->get();        
-
-        if($transaction1 != null){
-            foreach($transaction1 as $t){
-                $id = $t->id;
-                $array = Carbon::parse($t->book_enddate)->format('Y-m-d');
-            }
-    
-            
-            $to = Carbon::createFromFormat('Y-m-d', $array);
-            $from = Carbon::createFromFormat('Y-m-d', $now);
-            $diff_in_days = $to->diffInDays($from); // mendapatkan perbedaan jangka waktu dari enddate dan now
-            
-            echo $diff_in_days;
-            if($diff_in_days < 5){
-                echo 'perpanjang';
-                Transaction::where('id', $id)->update([
-                    'transaction_status' => 'R',
-                    'payment_status' => 'R',
-                ]);
-            }else{
-                echo 'belum saatnya';
-            }
-        }else{
-            echo 'no Transaction';
-        }
+        $transaction = Transaction::where('transaction_status', 'A')->get();       
         
+        if($transaction != null){
+            foreach($transaction as $t){
+                $enddate = $t->book_enddate;
+                
+                $to = Carbon::createFromFormat('Y-m-d', Carbon::parse($enddate)->format('Y-m-d'));
+                $from = Carbon::createFromFormat('Y-m-d', $now);
+                $diff_in_days = $to->diffInDays($from); // mendapatkan perbedaan jangka waktu dari enddate dan now
+                
+                echo $diff_in_days . ' ';
+
+                if($diff_in_days < 5){
+                    echo 'perpanjang ';
+                    Transaction::where('id', $t->id)->update([
+                        'transaction_status' => 'R',
+                        'payment_status' => 'R',
+                    ]);
+                }else{
+                    echo 'belum saatnya ';
+                }
+            }
+        }
     }
 }

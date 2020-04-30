@@ -19,13 +19,11 @@
             </div>
 
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <div class="col-10">
                                 <h4>List Kamar</h4>
-                            </div>
-                            <div class="col-2 text-right">
                             </div>
                         </div>
                         <div class="card-body">
@@ -37,15 +35,12 @@
                                                 No
                                             </th>
                                             <th>Name</th>
-                                            <th>Reserve by</th>
-                                            <th>Description</th>
-                                            <th>Number</th>
-                                            <th>Floor</th>
-                                            <th>Type</th>
+                                            <th>Pemesan</th>
+                                            <th>Tipe</th>
                                             <th>Location</th>
                                             <th>Harga</th>
-                                            <th>Start Book Date</th>
-                                            <th>Start End Date</th>
+                                            <th>Tanggal Awal</th>
+                                            <th>Tanggal Akhir</th>
                                             <th>Status</th>
                                             <th class="text-center">Action</th>
                                         </tr>
@@ -60,9 +55,6 @@
                                             <td class="text-center">{{ $no++ }}</td>
                                             <td>{{ $row->name }}</td>
                                             <td>{{ $row->user_id }}</td>
-                                            <td style=" width: 10%;">{{ $row->description }}</td>
-                                            <td>{{ $row->number }}</td>
-                                            <td>{{ $row->floor }}</td>
                                             <td>{{ $row->jeniskamar }}</td>
                                             <td>{{ $row->locationname }}</td>
                                             <td>Rp.{{ number_format($row->harga) }}</td>
@@ -80,8 +72,12 @@
                                             <td class="text-center">
                                                 <a href="{{ $url_update }}/{{ $row->id }}"
                                                     class="btn btn-primary">PILIH</a>
+                                                @if ($row->user_id)
+                                                <button class="btn btn-danger disabled">HAPUS</button>
+                                                @else
                                                 <button class="btn btn-danger"
                                                     onclick="deleteSidebar({{ $row->id }})">HAPUS</button>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

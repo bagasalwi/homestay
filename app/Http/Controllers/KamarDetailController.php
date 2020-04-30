@@ -39,7 +39,7 @@ class KamarDetailController extends Controller
             'updated_at' => null,
         ]);
 
-        return redirect('kamar/update/' . $request->kamar_id)->with('success', 'You have successfully upload image.');
+        return redirect('kamar/update/' . $request->kamar_id)->with('success', 'Gambar Kamar berhasil di upload!');
     }
 
     public function deleteDetail($id)

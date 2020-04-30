@@ -53,7 +53,9 @@ class DeleteTransaction extends Command
 
             DB::table('transactions')->where('id', $transaction->id)->delete();
             DB::table('kamars')->where('id', $kamar->id)->update([
-                'user_id' => NULL
+                'user_id' => NULL,
+                'end_date' => null,
+                'start_date' => null,
             ]);
 
             if($payment){

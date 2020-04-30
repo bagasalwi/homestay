@@ -80,7 +80,7 @@
                                             <td>{{ $row->kamar_mandi }}</td>
                                             <td class="text-center">
                                                 <a href="{{ $url_update }}/{{ $row->id }}"
-                                                    class="btn btn-primary">EDIT</a>
+                                                    class="btn btn-primary">PILIH</a>
                                                 <button class="btn btn-danger"
                                                     onclick="deleteJenisKamar({{ $row->id }})">HAPUS</button>
                                             </td>
@@ -101,8 +101,8 @@
 <script>
     function deleteJenisKamar(id){       
         swal({
-        title: "Delete?",
-        text: "Apa kamu ingin men-delete jenis kamar ini?",
+        title: "Hapus?",
+        text: "Apa kamu ingin menghapus jenis kamar ini?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -112,7 +112,7 @@
             $.ajax({
             url: "{{ url('jeniskamar/delete') }}" + "/" + id,
             success: function(){
-                swal("Done!","Jenis Kamar Berhasil di Delete!","success");
+                swal("Done!","Jenis Kamar Berhasil di Hapus!","success");
                 setInterval('window.location.reload()', 1000);
             },
             error: function(){

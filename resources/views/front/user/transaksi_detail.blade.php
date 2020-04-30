@@ -97,7 +97,7 @@
             }
             @endphp
 
-            <div class="col-sm-8">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
                         <h4>Transaksi {{ $transaction->id }}</h4>
@@ -158,10 +158,10 @@
                     @else
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-sm-6 text-left">
+                            <div class="col-md-6 text-left">
                                 <h6 class="text-danger" id="countdown"></h6>
                             </div>
-                            <div class="col-sm-6 text-right">
+                            <div class="col-md-6 text-right">
                                 <button onclick="CancelKamar({{ $transaction->id }})" class="btn btn-danger">Batalkan
                                     Pesanan</button>
                                 <button data-id="{{ $transaction->id }}" id="btn-modal" class="btn btn-primary"
@@ -172,8 +172,7 @@
                     @endif
                 </div>
             </div>
-
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         <h4>Total Pembayaran</h4>

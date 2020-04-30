@@ -42,45 +42,44 @@ class DeleteRenewTransaction extends Command
     public function handle()
     {
         $now = Carbon::now()->format('Y-m-d');
+        // $now = "2020-06-01";
         
-        // echo $transaction;
-        $transaction1 = Transaction::where('transaction_status', 'R')->get();        
+        $transaction = Transaction::where('transaction_status', 'R')->get();
+        
+        if($transaction){
+            foreach($transaction as $t){
+                $enddate = $t->book_enddate;
 
-        if($transaction1 != null){
-            foreach($transaction1 as $t){
-                $id = $t->id;
-                $user_id = $t->user_id;
-                $array = Carbon::parse($t->book_enddate)->format('Y-m-d');
-            }
-            
-            $to = Carbon::createFromFormat('Y-m-d', $array);
-            $from = Carbon::createFromFormat('Y-m-d', $now);
-            $diff_in_days = $to->diffInDays($from); // mendapatkan perbedaan jangka waktu dari enddate dan now
-            
-            // dd($diff_in_days);
-            if($diff_in_days > 2){
-                echo 'Transaksi void & kamar dikosongkan karena melewati 2 hari setelah enddate';
+                $void_date = Carbon::parse($t->book_enddate)->addDays(2)->format('Y-m-d');
 
-                $kamar = Kamar::where('user_id', $user_id)->first();
+                echo $void_date . ' ';
 
-                // ubah status void kepada transaksi
-                Transaction::where('id', $id)->update([
-                    'transaction_status' => 'V',
-                    'payment_status' => 'V',
-                ]);
+                if($now == $void_date){
+                    echo 'Transaksi void & kamar dikosongkan karena melewati 2 hari setelah enddate';
+        
+                        // ubah status void kepada transaksi
+                        Transaction::where('id', $t->id)->update([
+                            'transaction_status' => 'V',
+                            'payment_status' => 'V',
+                        ]);
 
-                // karena transaksi di voidkan, kamar dikosongkan dari user
-                Kamar::where('id', $kamar->id)->update([
-                    'user_id' => null,
-                    'end_date' => null,
-                    'start_date' => null,
-                ]);
-
-            }else{
-                echo 'Belum waktunya void';
+                        $kamar = Kamar::where('transaction_id', $t->id)->get();
+        
+                        foreach($kamar as $k){
+                            // karena transaksi di voidkan, kamar dikosongkan dari user
+                            Kamar::where('id', $k->id)->update([
+                                'user_id' => null,
+                                'end_date' => null,
+                                'start_date' => null,
+                                'transaction_id' => null,
+                            ]);
+                        }
+                }else{
+                    echo '- Belum waktunya void ' ;
+                }
             }
         }else{
-            echo 'no Transaction';
+            echo 'No Transaction';
         }
     }
 }

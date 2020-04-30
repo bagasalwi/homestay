@@ -16,6 +16,7 @@ class CreateKamarsTable extends Migration
         Schema::create('kamars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_id')->nullable();
+            $table->string('transaction_id')->nullable();
             $table->unsignedBigInteger('jeniskamar_id');
             $table->unsignedBigInteger('location_id');
             $table->string('name');

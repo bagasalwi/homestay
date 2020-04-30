@@ -34,7 +34,7 @@
 
         @if (Auth::user()->nik == null)
         <div class="row">
-            <div class="col-12 mb-4">
+            <div class="col-md-12 mb-4">
                 <div class="hero bg-primary text-white">
                     <div class="hero-inner">
                         <h2>Hello, {{ Auth::user()->name }} !</h2>
@@ -51,7 +51,7 @@
         </div>
         @elseif(count($transaction) == 0)
         <div class="d-flex justify-content-center">
-            <div class="col-6 mb-4 text-center">
+            <div class="col-md-6 mb-4 text-center">
                 <img src="{{ URL::asset('custom-images/undraw/8.svg')}}" alt="Image" class="img-fluid">
                 <h4>Kamu belum punya kamar yang aktif!</h4>
                 <p>
@@ -62,7 +62,7 @@
         </div>
         @elseif(count($transaction) > 0)
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>List Transaski</h4>

@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Carbon\Carbon;
+use App\Kamar;
+use App\Kamar_detail;
 use Auth;
 Use DB;
+Use File;
 
 class KamarController extends Controller
 {
@@ -133,12 +136,18 @@ class KamarController extends Controller
     }
 
     public function delete($id){
-        DB::table('kamars')->where('id', $id)->delete();
-    }
+        $kamar_detail = Kamar_detail::where('kamar_id', $id)->get();
 
-    public function approve($id){
-        DB::table('kamars')->where('id', $id)->update([
-            'status' => 'R',
-        ]);
+        foreach($kamar_detail as $detail){
+
+            $usersImage = public_path("custom-images/kamar_detail/{$detail->image}"); // get previous image from folder
+         
+            if (File::exists($usersImage)) { // unlink or remove previous image from folder
+                unlink($usersImage);
+            }
+        }
+
+        Kamar_detail::where('kamar_id', $id)->delete();
+        Kamar::where('id', $id)->delete();
     }
 }
