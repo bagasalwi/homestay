@@ -26,6 +26,10 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('command:DeleteTransaction')
                  ->everyMinute();
+        $schedule->command('command:AlertRenew')
+                 ->everyMinute();
+        $schedule->command('command:DeleteRenewTransaction')
+                 ->everyMinute();
     }
 
     /**

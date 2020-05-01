@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Transaction;
+use App\Kamar;
+use App\Payment;
 use Carbon\Carbon;
 use DB;
 
@@ -40,31 +42,28 @@ class DeleteTransaction extends Command
      */
     public function handle()
     {
-        $transaction = DB::table('transactions')
-            ->where('transaction_status', '!=', 'P')                
-            ->orWhere('transaction_status', '!=', 'A')                
-            ->orWhere('transaction_status', '!=', 'R')                
-            ->orWhere('created_at', '<=', Carbon::now()->subHours(5))->first();
+        $transaction = Transaction::where('transaction_status', '!=', 'P')
+            ->Where('transaction_status', '!=', 'A')                
+            ->Where('transaction_status', '!=', 'R')
+            ->Where('created_at', '<', Carbon::now()->subMinutes(5))->get();
 
-        // dd($transaction);
         if($transaction){
-            $kamar = DB::table('kamars')->where('user_id', $transaction->user_id)->first();
-            $payment = DB::table('payments')->where('transaction_id', $transaction->id)->first();
+            foreach($transaction as $t){
+                echo $t->created_at . ' deleted after ' . Carbon::now()->subHours(5)->toDateTimeString() . '|';
 
-            DB::table('transactions')->where('id', $transaction->id)->delete();
-            DB::table('kamars')->where('id', $kamar->id)->update([
-                'user_id' => NULL,
-                'end_date' => null,
-                'start_date' => null,
-            ]);
+                Transaction::where('user_id', $t->user_id)->delete();
 
-            if($payment){
-                DB::table('payments')->where('id', $payment->id)->delete();
+                Kamar::where('transaction_id', $t->id)->update([
+                    'user_id' => NULL,
+                    'transaction_id' => NULL,
+                    'end_date' => null,
+                    'start_date' => null,
+                ]);
+
+                Payment::where('transaction_id', $t->id)->delete();
             }
-            
-            echo 'Success Deleted';
         }else{
-            echo 'No Data Entry!';
+            echo 'No Data Entry';
         }
     }
 }

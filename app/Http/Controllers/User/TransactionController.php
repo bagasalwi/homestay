@@ -41,10 +41,6 @@ class TransactionController extends Controller
         if ($kamar->user_id) {
             return redirect()->back();
         } else {
-            DB::table('kamars')->where('id', $request->kamar_id)->update([
-                'user_id' => $user->id,
-            ]);
-
             $transaction = Transaction::create([
                 'user_id' => $user->id,
                 'kamar_id' => $request->kamar_id,
@@ -52,6 +48,11 @@ class TransactionController extends Controller
                 'transaction_price' => $kamar->harga,
                 'transaction_status' => 'N', //Not Yet completed
                 'payment_status' => 'N'
+            ]);
+
+            DB::table('kamars')->where('id', $request->kamar_id)->update([
+                'user_id' => $user->id,
+                'transaction_id' => $transaction->id
             ]);
 
             $payment = Payment::create([
@@ -146,6 +147,7 @@ class TransactionController extends Controller
         }
         DB::table('kamars')->where('id', $kamar->id)->update([
             'user_id' => null,
+            'transaction_id' => null,
         ]);
 
         DB::table('transactions')->where('id', $transaction->id)->delete();
