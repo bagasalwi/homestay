@@ -109,7 +109,7 @@
                         <hr>
                         <p class="card-text">Klik tombol dibawah ini untuk menambah kamar baru untuk di daftarkan pada
                             website
-                            omah saras!</p>
+                            Kontrakan!</p>
                         <a href="{{ url('kamar/create') }}" class="btn btn-lg btn-primary">Tambah Kamar Baru</a>
                     </div>
                 </div>

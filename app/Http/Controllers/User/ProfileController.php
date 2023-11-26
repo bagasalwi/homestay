@@ -75,7 +75,7 @@ class ProfileController extends Controller
             'identity2' => 'required|numeric|min:8',
             'national' => 'required',
             'gender' => 'required',
-            'attachment' => 'file|image|mimes:jpeg,png,jpg',
+            'attachment' => 'file|mimes:jpeg,png,jpg',
             'password' => ['required','confirmed', new PassConfirm()]
         ]);
 
@@ -150,7 +150,7 @@ class ProfileController extends Controller
         $data['navbar'] = DB::table('sidebar')->where('role_id', 1)->get();
 
         $this->validate($request, [
-            'profile_pic' => 'required|file|image|mimes:jpeg,png,jpg'
+            'profile_pic' => 'required|file|mimes:jpeg,png,jpg'
         ]);
 
         if($request->hasFile('profile_pic')){

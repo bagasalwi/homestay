@@ -74,9 +74,9 @@ data-stellar-background-ratio="0.5" id="home-section">
 				<img src="{{ URL::asset('front/myimages/undraw/1.svg')}}" alt="Image" class="img-fluid">
 			</div>
 			<div class="col-lg-4 ml-auto" data-aos="fade-left">
-				<span class="sub-title">Kenapa sih BCreative Kontrakan?</span>
+				<span class="sub-title">Kenapa sih Kontrakan?</span>
 				<h3 class="mb-4">Tentang Kita</h3>
-				<p class="mb-4">Dengan BCreative Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
+				<p class="mb-4">Dengan Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
 					kontrakan secara online</p>
 				<ul class="list-unstyled ul-check text-left success mb-5">
 					<li>Serba Online</li>
@@ -96,7 +96,7 @@ data-stellar-background-ratio="0.5" id="home-section">
 		<div class="row justify-content-center">
 			<div class="col-md-7 text-center">
 				<span class="sub-title">Harga Kontrakan</span>
-				<h2 class="font-weight-bold text-black">Pilihan Layanan BCreative Kontrakan</h2>
+				<h2 class="font-weight-bold text-black">Pilihan Layanan Kontrakan</h2>
 				<p class="mb-5">Kalian bisa pilih kontrakan berdasarkan fitur-fitur yang tersedia pada kontrakan</p>
 			</div>
 		</div>

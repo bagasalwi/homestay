@@ -21,8 +21,9 @@ class LocationDetailController extends Controller
     public function createDetail(Request $request)
     {
         $this->validate($request, [
-            'image' => 'file|image|mimes:jpeg,png,jpg|max:3048'
+            'image' => 'file|mimes:jpeg,png,jpg|max:3048'
         ]);
+
 
         if ($request->hasFile('image')) {
             $avatar = $request->file('image');

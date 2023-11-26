@@ -3,19 +3,19 @@
 Auth::routes(['verify' => true]);
 
 
-Route::get('/', 'User\FrontController@index');
-Route::get('/tentang-kamar', 'User\FrontController@tentangkamar');
+Route::get('/', 'User\FrontController@index')->name('home');
+Route::get('/tentang-kamar', 'User\FrontController@tentangkamar')->name('tentangkamar');
 
 // lokasi front
 Route::prefix('jenis-kamar')->group(function () {
-    Route::get('/', 'User\FrontKamarController@pilihjenis');
+    Route::get('/', 'User\FrontKamarController@pilihjenis')->name('jeniskamar');
     Route::get('/{id}', 'User\FrontKamarController@pilihkamar');
     Route::get('/detail/{lokasi}', 'User\FrontKamarController@kamar_detail');
 });
 
 // lokasi front
 Route::prefix('lokasi')->group(function () {
-    Route::get('/', 'User\FrontLokasiController@lokasi');
+    Route::get('/', 'User\FrontLokasiController@lokasi')->name('lokasi');
     Route::get('/{lokasi}', 'User\FrontLokasiController@lokasi_detail');
 });
 

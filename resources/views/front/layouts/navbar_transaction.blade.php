@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg main-navbar">
-    <a href="{{ url('/') }}" class="navbar-brand sidebar-gone-hide">Omah Saras</a>
+    <a href="{{ url('/') }}" class="navbar-brand sidebar-gone-hide">Kontrakan</a>
     <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
     {{-- <div class="nav-collapse">
         <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">

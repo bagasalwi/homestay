@@ -8,10 +8,10 @@
                         <div class="footer-tittle">
                             <h4>Menu utama</h4>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Tentang</a></li>
-                                <li><a href="#">Jenis Kamar</a></li>
-                                <li><a href="#">Lokasi</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('tentangkamar') }}">Tentang</a></li>
+                                <li><a href="{{ route('jeniskamar') }}">Jenis Kamar</a></li>
+                                <li><a href="{{ route('lokasi') }}">Lokasi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                             <h4>Lokasi Kita</h4>
                             <ul>
                                 <li><a href="#">Jakarta,</a></li>
-                                <li><a href="#">Jl. Kemuning Raya No. 1 RT/RW 012/02 Utan Kayu Utara</a></li>
+                                <li><a href="#">Jl. Kontrakan Raya timur no 9 blok 22-1</a></li>
                             </ul>
                         </div>
                     </div>
@@ -32,27 +32,10 @@
                         <div class="footer-tittle">
                             <h4>Info Selanjutnya</h4>
                             <ul>
-                                <li><a href="#">Telepon : 0851 1234 1221</a></li>
-                                <li><a href="#">Skype: Marianabooking</a></li>
-                                <li><a href="#">admin@omahsaras.com</a></li>
+                                <li><a href="#">Telepon : 0859 4660 6295</a></li>
+                                <li><a href="#">Instagram: Kontrakan</a></li>
+                                <li><a href="#">Email : admin@kontrakan.com</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-12 text-center">
-                    <div class="single-footer-caption mb-30">
-                        <!-- logo -->
-                        <div class="footer-pera">
-                            <p>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="ti-heart"
-                                    aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                    target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
                         </div>
                     </div>
                 </div>

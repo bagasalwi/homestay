@@ -1,7 +1,7 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="#">Omah Saras</a>
+            <a href="#">Kontrakan</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="#">BC</a>

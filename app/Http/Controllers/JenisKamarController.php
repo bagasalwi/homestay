@@ -80,7 +80,7 @@ class JenisKamarController extends Controller
                 'description' => 'required',
                 'listrik' => 'required',
                 'kamar_mandi' => 'required',
-                'thumbnail' => 'file|image|mimes:jpeg,png,jpg|max:3048|required'
+                'thumbnail' => 'file|mimes:jpeg,png,jpg|max:3048|required'
             ]);
 
             if ($request->hasFile('thumbnail')) {

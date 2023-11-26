@@ -7,7 +7,7 @@
 			<div class="row ">
 				<div class="col-md-11 offset-xl-1 offset-lg-1 offset-md-1">
 					<div class="hero-caption">
-						<span>Omah Saras</span>
+						<span>Kontrakan</span>
 						<h2>Tentang</h2>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
                     <span>Tentang Kita</span>
                     <h2>Pesan Kontrakan atau Homestay dimana saja</h2>
                     <div class="caption-details">
-                        <p>Dengan Omah Saras Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
+                        <p>Dengan Kontrakan Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
                             kontrakan secara online</p>
                         <p></p>
                         
@@ -165,7 +165,7 @@
                     <div class="dining-caption">
                         <span>Kamar Mandi</span>
                         <h3>Kamar Mandi Dalam & Luar</h3>
-                        <p>Pada kontrakan omah saras akan diberi 2 pilihan yaitu kamar mandi dalam atau luar. Untuk kamar mandi luar ada 2 kamar mandi yang selalu di bersihkan setiap hari.</p>
+                        <p>Pada kontrakan Kontrakan akan diberi 2 pilihan yaitu kamar mandi dalam atau luar. Untuk kamar mandi luar ada 2 kamar mandi yang selalu di bersihkan setiap hari.</p>
                         {{-- <a href="#" class="btn border-btn">Kamar Mandi <i class="ti-angle-right"></i> </a> --}}
                     </div>
                 </div>

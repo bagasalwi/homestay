@@ -10,7 +10,7 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-xl-9">
                         <div class="h1-slider-caption">
-                            <h1 data-animation="fadeInUp" data-delay=".4s">Omah Saras</h1>
+                            <h1 data-animation="fadeInUp" data-delay=".4s">Kontrakan</h1>
                             <h3 data-animation="fadeInDown" data-delay=".4s">Kost & Homestay</h3>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-xl-9">
                         <div class="h1-slider-caption">
-                            <h1 data-animation="fadeInUp" data-delay=".4s">Omah Saras</h1>
+                            <h1 data-animation="fadeInUp" data-delay=".4s">Kontrakan</h1>
                             <h3 data-animation="fadeInDown" data-delay=".4s">Kost & Homestay</h3>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-xl-9">
                         <div class="h1-slider-caption">
-                            <h1 data-animation="fadeInUp" data-delay=".4s">Omah Saras</h1>
+                            <h1 data-animation="fadeInUp" data-delay=".4s">Kontrakan</h1>
                             <h3 data-animation="fadeInDown" data-delay=".4s">Kost & Homestay</h3>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                     <span>Tentang Kita</span>
                     <h2>Pesan Kontrakan atau Homestay dimana saja</h2>
                     <div class="caption-details">
-                        <p>Dengan Omah Saras Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
+                        <p>Dengan Kontrakan Kontrakan, dapat mempermudah kalian dalam memesan maupun mengorganisir
                             kontrakan secara online</p>
                         <a href="{{ url('/tentang-kamar') }}" class="btn more-btn1">Learn More <i class="ti-angle-right"></i> </a>
                     </div>
@@ -194,7 +194,7 @@
                     <div class="dining-caption">
                         <span>Kamar Mandi</span>
                         <h3>Kamar Mandi Dalam & Luar</h3>
-                        <p>Pada kontrakan omah saras akan diberi 2 pilihan yaitu kamar mandi dalam atau luar. Untuk kamar mandi luar ada 2 kamar mandi yang selalu di bersihkan setiap hari.</p>
+                        <p>Pada kontrakan Kontrakan akan diberi 2 pilihan yaitu kamar mandi dalam atau luar. Untuk kamar mandi luar ada 2 kamar mandi yang selalu di bersihkan setiap hari.</p>
                         <a href="#" class="btn border-btn">Kamar Mandi <i class="ti-angle-right"></i> </a>
                     </div>
                 </div>

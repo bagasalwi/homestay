@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="login-brand">
-                        <strong class="text-primary">OMAH SARAS HOMESTAY</strong>
+                        <strong class="text-primary">Kontrakan HOMESTAY</strong>
                     </div>
 
                     <div class="card card-primary">

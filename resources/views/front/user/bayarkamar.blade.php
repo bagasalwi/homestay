@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <h6 class="text-center">Omah Saras - <strong>60411 02079</strong></h6>
+                                <h6 class="text-center">Kontrakan - <strong>60411 02079</strong></h6>
                             </div>
                         </div>
                         <div class="row">

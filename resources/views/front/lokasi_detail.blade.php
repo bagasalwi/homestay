@@ -43,11 +43,6 @@
                 @endforeach
                 
             </div>
-            <div class="row justify-content-center">
-                <div class="room-btn pt-70">
-                    <a href="#" class="btn view-btn1">View more  <i class="ti-angle-right"></i> </a>
-                </div>
-            </div>
         </div>
 
     </section>

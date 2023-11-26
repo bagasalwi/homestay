@@ -1,6 +1,6 @@
 @component('mail::message')
 
-Selamat datang di omahsaras.com!
+Selamat datang di kontrakan.com!
 
 @component('mail::button', ['url' => $url])
 Verify Email

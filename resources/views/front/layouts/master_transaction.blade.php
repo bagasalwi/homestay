@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>BCreative Kontrakan Transaction</title>
+    <title>Kontrakan Transaction</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ URL::asset('assets/modules/bootstrap/css/bootstrap.min.css')}}">
@@ -42,7 +42,7 @@
             @yield('content')
             <footer class="main-footer">
                 <div class="footer-left">
-                    BCreative Kontrakan &copy; 2020 <div class="bullet"></div> Design By stisla
+                    Kontrakan &copy; 2023
                 </div>                
             </footer>
         </div>

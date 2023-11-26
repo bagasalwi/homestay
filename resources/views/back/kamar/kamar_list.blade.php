@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h4 class="card-title text-primary">Tambah Kamar ?</h4>
                     <hr>
-                    <p class="card-text">Klik tombol dibawah ini untuk menambah kamar baru untuk di daftarkan pada website omah saras!</p>
+                    <p class="card-text">Klik tombol dibawah ini untuk menambah kamar baru untuk di daftarkan pada website Kontrakan!</p>
                     <a href="{{ $url_create }}" class="btn btn-lg btn-primary">Tambah Kamar Baru</a>
                 </div>
             </div>

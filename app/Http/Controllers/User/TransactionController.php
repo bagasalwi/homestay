@@ -170,7 +170,7 @@ class TransactionController extends Controller
     public function KonfirmasiPembayaran(Request $request)
     {
         $this->validate($request, [
-            'bukti_transfer' => 'required|file|image|mimes:jpeg,png,jpg|max:3048'
+            'bukti_transfer' => 'required|file|mimes:jpeg,png,jpg|max:3048'
         ]);
         // dd($request);
         $payment = Payment::where('transaction_id', $request->transaction_id)->first();

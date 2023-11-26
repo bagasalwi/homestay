@@ -7,7 +7,7 @@
                     <!-- logo -->
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo">
-                            Omah Saras
+                            Kontrakan
                         </div>
                     </div>
                     @guest
